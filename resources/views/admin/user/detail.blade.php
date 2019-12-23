@@ -43,6 +43,12 @@
         margin-left: 0 !important;
         margin-right:  0 !important;
     }
+    .todo-count-form {
+        width: 100px !important;
+    }
+    .todo-label.w-100 {
+        width: 170px !important;
+    }
     </style>
 @endsection
 
@@ -143,7 +149,8 @@
                                             since your last activity start.
                                         ">?</span>
                                     </label>
-                                    <span class="todo-count count-likes">{{ $user->activity_likes_value }}</span>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="like_value" value="{{ $user->activity_likes_value }}"/>
+                                    
                                 </div>
 
                                 <div class="todo-control">
@@ -157,7 +164,7 @@
                                             since your last activity start.
                                         ">?</span>
                                     </label>
-                                    <span class="todo-count count-comments">{{ $user->activity_comments_value }}</span>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="comment_value" value="{{ $user->activity_comments_value }}"/>
                                 </div>
 
                                 <div class="todo-control">
@@ -172,7 +179,7 @@
                                         ">?</span>
 
                                     </label>
-                                    <span class="todo-count count-follows">{{ $user->activity_follows_value }}</span>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="follows_value" value="{{ $user->activity_follows_value }}"/>
                                 </div>
 
                                 <div class="todo-control">
@@ -186,7 +193,19 @@
                                             since your last activity start.
                                         ">?</span>
                                     </label>
-                                    <span class="todo-count count-unfollows">{{ $user->activity_unfollows_value }}</span>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="unfollows_value" value="{{ $user->activity_unfollows_value }}"/>
+                                </div>
+                                <div class="todo-control">
+                                    <label class="todo-label" for="inpview">
+                                        Views
+                                    </label>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="views_value" value="{{ $user->activity_views_value }}"/>
+                                </div>
+                                <div class="todo-control">
+                                    <label class="todo-label" for="inpGnfollow">
+                                        Follower Gained
+                                    </label>
+                                    <input type="number" class="todo-count-form form-control pull-right" name="follower_gained_value" value="{{ $user->follower_gained }}"/>
                                 </div>
                             </div>
 

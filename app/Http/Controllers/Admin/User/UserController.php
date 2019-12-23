@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
+use Auth;
 use Illuminate\Validation\Rule;
 
 
@@ -16,7 +17,18 @@ class UserController extends Controller
      */
     public function update(Request $request) {
         
+      
         $user = User::findOrFail($request->id);
+        
+        if(Auth::user()->hasRole('admin')) {
+            $user->activity_likes_value = (int)$request->like_value;
+            $user->activity_comments_value =(int) $request->comment_value;
+            $user->activity_follows_value  = (int) $request->follows_value;
+            $user->activity_follows_value = (int) $request->unfollows_value;
+            $user->activity_views_value = (int) $request->views_value;
+            $user->follower_gained = (int) $request->follower_gained_value;
+        }
+        
         $user->activity_likes =  $request->like ? 1 : 0;
         $user->activity_comments =  $request->comment ? 1 : 0;
         $user->activity_follows  =  $request->follow ? 1 : 0;
