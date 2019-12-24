@@ -29,7 +29,7 @@
 
                <li class="hidden-xs">
                    <div data-toggle="tooltip" data-placement="top" title="" data-original-title="Reconnect">
-                       <a href="#" class="menu-icons menu-icon-reconnect" data-ui="btn-reauth" data-username="fergata.as"></a>
+                       <a href="#" class="menu-icons menu-icon-reconnect" data-ui="btn-reauth"></a>
                    </div>
                </li>
                <li class="hidden-xs">
@@ -192,7 +192,7 @@
 </div>
 
 
-<section class="activity worker js-user" data-user-id=5d23d9566ca74c76cf5d26da data-username=fergata.as>
+<section class="activity worker js-user" data-user-id=5d23d9566ca74c76cf5d26da>
    <div class=activity-head>
        <div class=container>
            <h1>Activity</h1>
@@ -211,7 +211,7 @@
            </div>
            <div class="alert alert-warning worker-reconnect-required hidden" style=display:none>
                We detected that some of the actions may not work properly on this account and
-               <a href=# class=link-ajax data-ui=btn-reauth data-username=fergata.as>reconnect</a> is required.
+               <a href=# class=link-ajax data-ui=btn-reauth>reconnect</a> is required.
            </div>
            <div class="alert alert-success worker-stop-reason hidden" data-hidden=true data-alert-class=alert-success style=display:none>
                Your activity automatically stopped:
