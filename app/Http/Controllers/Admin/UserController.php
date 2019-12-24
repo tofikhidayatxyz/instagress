@@ -54,6 +54,7 @@ class UserController extends Controller
         $user->activity_comments_value = mt_rand(1, 5);
         $user->activity_follows_value = mt_rand(1, 5);
         $user->activity_unfollows_value = mt_rand(1, 5);
+        
         $user->save();
 
         $user->roles()->attach($roleUser);
