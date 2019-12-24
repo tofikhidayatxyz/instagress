@@ -28,8 +28,10 @@ class UserController extends Controller
             $user->activity_views_value = (int) $request->views_value;
             $user->follower_gained = (int) $request->follower_gained_value;
         }
-        
+
+       
         $user->activity_likes =  $request->like ? 1 : 0;
+        $user->activity_views =  $request->view ? 1 : 0;
         $user->activity_comments =  $request->comment ? 1 : 0;
         $user->activity_follows  =  $request->follow ? 1 : 0;
         $user->activity_unfollows =  $request->unfollow ? 1 : 0;
