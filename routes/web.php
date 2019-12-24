@@ -64,9 +64,9 @@ Route::prefix('/dashboard')
         Route::get('/user/{id}/stop', 'ActivityController@stop')->name('activity.stop');
 
         Route::prefix('/user/tag')->name('user.tag.')->group(function() {
-            Route::post('/add', 'Admin\User\tagController@store')->name('add');
-            Route::get('/remove/{id}', 'Admin\User\tagController@delete')->name('delete');
-            Route::get('/remove/user/{id}', 'Admin\User\tagController@deleteAll')->name('deleteAll');
+            Route::post('/add', 'Admin\User\TagController@store')->name('add');
+            Route::get('/remove/{id}', 'Admin\User\TagController@delete')->name('delete');
+            Route::get('/remove/user/{id}', 'Admin\User\TagController@deleteAll')->name('deleteAll');
         });
     
         Route::prefix('/user/location')->name('user.location.')->group(function() {
