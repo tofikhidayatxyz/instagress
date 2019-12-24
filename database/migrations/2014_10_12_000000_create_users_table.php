@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
 
             $table->enum('status', ['started', 'stopped'])->default('started');
             $table->date('start_time')->default(Carbon::now());
+            $table->date('stop_time')->default(Carbon::now());
 
             $table->integer('follower_gained')->default(0);
 
