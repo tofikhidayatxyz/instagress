@@ -66,6 +66,7 @@
         <div class="navbar-mobile-menu" data-ui="navbar-menu-login">
 
             <ul>
+                @guest
                 <li><a href="demo.html#" data-popup-open="#popup-account-login">Log in</a></li>
                 <li class="visible-xs visible-sm">
                     <a href="demo.html#" data-popup-open="#popup-account-signup">Sign up</a>
@@ -73,6 +74,10 @@
                 <li class="hidden-xs hidden-sm">
                     <button class="btn btn-plain btn-danger" data-popup-open="#popup-account-signup">Sign up</button>
                 </li>
+                @endguest
+                @auth
+                <li><a href="{{ route('logout') }}">Log in</a></li>
+                @endauth
             </ul>
 
         </div>

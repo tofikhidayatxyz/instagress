@@ -5,7 +5,7 @@
     <form action="{{ route('admin.user.tag.add') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
-        <a href="" class="btn-close-x" data-popup-close="#popup-activity-tags"></a>
+        <a href="" class="btn-close-x" data-popup-close="#popup-activity-tags-data"></a>
 
         <div class="alerts">
             <div class="alert alert-danger alert-error js-txt-error"></div>
@@ -28,7 +28,7 @@
 
 <div id="popup-activity-locations-data" class="popup">
     <h3>Add Locations</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-locations"></a>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-locations-data"></a>
     <form action="{{ route('admin.user.location.add') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
@@ -60,9 +60,12 @@
         <div class="mb20">
             <div class="input-group input-group-with-gap">
                 <input type="text" class="form-control input-icon" name="username" placeholder="Username" autofocus/>
+                @if(getSession('error'))
+                 <span class="text-danger">{!! getSession('error') !!}</span>
+                @endif
                 <span class="input-group-btn">
-                <button class="btn btn-plain btn-success" type="submit">Add</button>
-            </span>
+                    <button class="btn btn-plain btn-success" type="submit">Add</button>
+                </span>
             </div>
             <span class="help-block text-danger text-error hidden"></span>
         </div>
@@ -74,10 +77,18 @@
 </div>
 
 
+@if(getSession('open') == 'username' &&  getSession('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('[data-popup-open="#popup-activity-username-data"]').trigger('click')
+    })
+</script>
+@endif
+
 {{-- Tag blacklist --}}
 <div id="popup-activity-tag-blacklist" class="popup">
     <h3>Add Blacklist Tags</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-username-data"></a>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-tag-blacklist"></a>
     <form action="{{ route('admin.user.tagblacklist.add') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
@@ -92,7 +103,7 @@
         </div>
 
         <div class="text-align-center mt20">
-            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-username-data">Close</button>
+            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-tag-blacklist">Close</button>
         </div>
     </form>
 </div>
@@ -102,7 +113,7 @@
 {{-- Tag keyword --}}
 <div id="popup-activity-keyword-blacklist" class="popup">
     <h3>Add Blacklist Keyword</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-username-data"></a>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-keyword-blacklist"></a>
     <form action="{{ route('admin.user.keywordblacklist.add') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
@@ -117,7 +128,7 @@
         </div>
 
         <div class="text-align-center mt20">
-            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-username-data">Close</button>
+            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-keyword-blacklist">Close</button>
         </div>
     </form>
 </div>
@@ -125,16 +136,19 @@
 
 
 
-{{-- keyword --}}
+{{-- username --}}
 <div id="popup-activity-username-blacklist" class="popup">
-    <h3>Add Blacklist Keyword</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-username-data"></a>
+    <h3>Add Blacklist Username</h3>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-username-blacklist"></a>
     <form action="{{ route('admin.user.usernameblacklist.add') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
         <div class="mb20">
             <div class="input-group input-group-with-gap">
                 <input type="text" class="form-control input-icon" name="name" placeholder="Username" autofocus/>
+                @if(getSession('error'))
+                 <span class="text-danger">{!! getSession('error') !!}</span>
+                @endif
                 <span class="input-group-btn">
                 <button class="btn btn-plain btn-success" type="submit">Add</button>
             </span>
@@ -143,16 +157,25 @@
         </div>
 
         <div class="text-align-center mt20">
-            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-username-data">Close</button>
+            <button class="btn btn-plain js-btn-close" data-popup-close="#popup-activity-username-blacklist">Close</button>
         </div>
     </form>
 </div>
 
 
+@if(getSession('open') == 'blacklist' &&  getSession('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('[data-popup-open="#popup-activity-username-blacklist"]').trigger('click')
+    })
+</script>
+@endif
+
+
 
 <div id="popup-activity-keywords-blacklist" class="popup">
     <h3>Add Keywords</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-keywords" ></a>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-keywords-blacklist" ></a>
 
     <form action="{{ route('admin.user.keywordblacklist.add') }}" method="post">
         @csrf
@@ -361,6 +384,11 @@
         <button class="btn btn-plain btn-success hidden" data-ui="btn-add">Add</button>
     </div>
 </div>
+
+
+
+
+
 
 <div id="popup-start-guide" class="popup popup-slider">
     <h3>Quick Start Guide</h3>

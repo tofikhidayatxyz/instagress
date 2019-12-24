@@ -54,7 +54,7 @@
 
                 <span class="pull-right">
             <input name="unfollow_who_dont_follow_me" id="unfollowSmart" class="chk-custom" type="checkbox"
-                   data-checked="{{ $user->unfollow_who_dont_follow_me }}/>
+                   data-checked="{{ $user->unfollow_who_dont_follow_me }}"/>
             <label class="chk-custom" for="unfollowSmart"></label>
         </span>
             </div>

@@ -4,7 +4,7 @@
 		Users
 	</span>
 </a>
-<div class="activity-settings-cont collapse{{ getSession('open') === 'username' ? 'in' : '' }}" id="settings-usernames">
+<div class="activity-settings-cont collapse{{ getSession('open') === 'username' ? 'in' : '' }} " id="settings-usernames">
     <div class="row just">
         <div class="form-group col-md-4 col-sm-6" data-field="downtimeLimit">
             <div class="nice-block">
@@ -100,17 +100,21 @@
                                             You can add up to 100 usernames.
                                           ">?</span>
                     </span>
-        
                     <span class="units-row">
                         @foreach ($user->usernames as $name )
+
+                        <span  class="unit-username unit-username-pic" >
+
+                            <span>{{ $name->name }}</span>
+                            <img src="{{ $name->profile }}" class="unit-username-avatar">
+                            <a href="{{ route('admin.user.username.delete', $name->id) }}" class="unit-btn-x" tabindex="-1" >&times;</a>
                             
-                        <span class="unit-tag unit-parent"
-                            data-tag="{{ $name->name }}">
-                                    <span>{{ $name->name }}</span>
-                            <a href="{{ route('admin.user.username.delete', $name->id) }}" tabindex="-1" >&times;</a>
                         </span>
+
                         @endforeach
-                    </span>
+                
+                </span>
+
                     <div class="btn-group">
                         <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-username-data">Add</button>
         

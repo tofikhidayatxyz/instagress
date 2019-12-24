@@ -46,7 +46,10 @@
 
     <!-- Styles -->
 
+    <link rel="stylesheet" href="{{ asset('css/styles.app.7-AehahH4m.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.bundle-v=203.css') }}" media="all" />
+    
+    
 
     @yield('css')
 
@@ -71,6 +74,16 @@
     <style>
         html , body {
             overflow-y: unset !important;
+        }
+        .navbar-username .username-menu .username-menu-actions>li .menu-icons.menu-icon-dashboard {
+            background-position: 0 0;
+        }
+        .navbar-username .username-menu .username-menu-actions>li .menu-icons {
+            display: inline-block;
+            vertical-align: text-bottom;
+            width: 16px;
+            background-image: url({{ asset('img/sprit-icon-dash.png') }});
+            height: 16px;
         }
     </style>
 

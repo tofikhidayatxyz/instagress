@@ -59,14 +59,15 @@
             </span>
 
             <span class="units-row">
-                
+
                 @foreach ($user->blacklistUsernames as $name )
-                            
-                <span class="unit-tag unit-parent"
-                    data-tag="{{ $name->name }}">
-                            <span>{{ $name->name }}</span>
-                    <a href="{{ route('admin.user.usernameblacklist.delete', $name->id) }}" tabindex="-1" >&times;</a>
-                </span>
+
+                    <span  class="unit-username unit-username-pic" >
+
+                        <span>{{ $name->name }}</span>
+                        <img src="{{ $name->profile }}" class="unit-username-avatar">
+                        <a href="{{ route('admin.user.usernameblacklist.delete', $name->id) }}" class="unit-btn-x" tabindex="-1" >&times;</a>            
+                    </span>
                 @endforeach
                 
             </span>
