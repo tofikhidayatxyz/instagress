@@ -19,45 +19,7 @@
          </a>
 
        </div>
-       <div class="username-menu">
-           <ul class="username-menu-actions">
-               <li class="hidden-xs">
-                   <div data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to dashboard">
-                     <a href="https://www.instagram.com/{{ $user->name }}" class="menu-icons menu-icon-dashboard"></a>
-                   </div>
-               </li>
-
-               <li class="hidden-xs">
-                   <div data-toggle="tooltip" data-placement="top" title="" data-original-title="Reconnect">
-                       <a href="#" class="menu-icons menu-icon-reconnect" data-ui="btn-reauth"></a>
-                   </div>
-               </li>
-               <li class="hidden-xs">
-                   <div data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
-                       <a href="#" class="menu-icons menu-icon-more" data-toggle="dropdown"></a>
-                       <ul class="dropdown-menu sf-hidden">
-                           <li>
-
-                           </li>
-                           <li class="divider"></li>
-
-                           <li>
-
-                           </li>
-                           <li class="divider"></li>
-                           <li>
-
-                           </li>
-
-                           <li>
-
-                           </li>
-
-                       </ul>
-                   </div>
-               </li>
-           </ul>
-       </div>
+       
        <a href=# class="btn-username-menu-pages sf-hidden" data-ui-menu-toggle=navbar-username-menu-pages></a>
        <div class="navbar-mobile-menu navbar-mobile-username-menu sf-hidden" data-ui=navbar-username-menu-pages>
            <ul>
