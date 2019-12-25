@@ -10,7 +10,7 @@
 <div class=navbar-username>
    <div class=container>
        <div class=username-cont>
-           <a href="#" data-popup-open="#popup-account-email" class=username>
+           <a href="#" data-popup-open="#popup-account-email-change" class=username>
            {{ $user->name }}
             <div class="avatar js-avatar">
                <img src="{{ $user->profile }}" alt="{{ $user->name }}">
@@ -179,7 +179,7 @@
                Your activity automatically stopped:
                <span class=stop-reason></span>
                <span class="stop-error-help hidden" style=display:none>
-         ()
+         
          </span>
            </div>
            <div class=row>
@@ -304,12 +304,14 @@
                        <span class="todo-count count-unfollows">{{ $user->activity_unfollows_value }}</span>
                        @endif
                    </div>
+                   @if(Auth::user()->hasRole('admin'))
                    <div class="todo-control">
                      <label class="todo-label" for="inpGnfollow">
                          Follower Gained
                      </label>
                      <input type="number" class="todo-count-form form-control pull-right" name="follower_gained_value" value="{{ $user->follower_gained }}"/>
                  </div>
+                 @endif
                </div>
                <div class="col-sm-6 col-sm-pull-6 col-md-4 col-md-pull-4 start-stop-block">
                    <div class="resource resource-time ok">
@@ -377,7 +379,7 @@
                        </div>
                        <div class=payment-slider-cont>
                            <div class=payment-slider style=width:1230px>
-                               <div class=payment-item style=width:114px>
+                               <div class=payment-item style="width:114px; position: relative; z-index:9; ">
                                    <span class=num>3</span>
                                    <span class=units>days</span>
                                    <span class=price>
@@ -477,3 +479,6 @@
            </div>
        </div>
    </div>
+
+
+   

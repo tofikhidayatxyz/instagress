@@ -471,10 +471,10 @@
 
 
 
-<div id="popup-account-email" class="popup"  @if(\Session::has('login.error'))  style="position: absolute; display: block; visibility: visible; z-index: 1001; left: 213px; top: 164.5px;" @endif>
+<div id="popup-account-email-change" class="popup"  @if(\Session::has('login.error'))  style="position: absolute; display: block; visibility: visible; z-index: 1001; left: 213px; top: 164.5px;" @endif>
     <h3>Change User Detail</h3>
     <a href="#" class="btn-close-x" data-popup-close="
-    #popup-account-email"></a>
+    #popup-account-email-change"></a>
     <form action="{{ route('admin.user.change') }}" method="post">
       @csrf
     <input type="hidden" name="id" value="{{ $user->id }}" >

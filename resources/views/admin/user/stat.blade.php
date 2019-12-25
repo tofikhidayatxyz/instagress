@@ -62,45 +62,72 @@
             </form>
         </div>
 
-        <div class="usermenu">
-            <div class="container">
-                <a href="demo.html" class="avatar">
-                    <img src="{{ $user->profile }}" alt="demo" />
+        
+
+                
+        <div class=navbar-username>
+            <div class=container>
+                <div class=username-cont>
+                    <a href="#" data-popup-open="#popup-account-email-change" class=username>
+                    {{ $user->name }}
+                    <div class="avatar js-avatar">
+                        <img src="{{ $user->profile }}" alt="{{ $user->name }}">
+                    </div>
+        
                 </a>
-
-                <ul class="menu account-actions pull-left">
-                    <li class="name">
-                        <a href="demo.html">demo</a>
-                    </li>
-
-                    {{--
-                    <li class="hidden-xs">
-                        <a href="demo.html#" class="semibold" data-popup-open="#popup-account-signup">
-                            Sign up for Dashboard
+        
+                </div>
+                
+                <a href=# class="btn-username-menu-pages sf-hidden" data-ui-menu-toggle=navbar-username-menu-pages></a>
+                <div class="navbar-mobile-menu navbar-mobile-username-menu sf-hidden" data-ui=navbar-username-menu-pages>
+                    <ul>
+                        <li >
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.detail', $user->id) : route('activity.index') }}">
+                        Activity
                         </a>
-                    </li> --}}
-
-                </ul>
-
-                <ul class="menu pull-right">
-
-                    <li>
-                        <a href="{{ route('admin.user.detail', $user->id) }}">Activity</a>
-                    </li>
-
-                    <li class="active">
-                        <a href="{{ route('activity.stat') }}">Stat</a>
-                    </li>
-
-                    <li class="">
-                        <a href="../index.html">Profile</a>
-                    </li>
-
-                    <li class="">
-                        <a href="../index.html">Likes</a>
-                    </li>
-
-                </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                        Log
+                        </a>
+                        </li>
+                        <li class=active>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
+                        Stats
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Profile
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="username-menu pull-right">
+                    <ul class=username-menu-pages>
+                        <li >
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.detail', $user->id) : route('activity.index') }}">
+                        Activity
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Log
+                        </a>
+                        </li>
+                        <li class=active>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
+                        Stats
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Profile
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="username-oversize sf-hidden"></div>
             </div>
         </div>
 

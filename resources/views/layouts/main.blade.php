@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +86,11 @@
             width: 16px;
             background-image: url({{ asset('img/sprit-icon-dash.png') }});
             height: 16px;
+            
         }
+        .payment-slider-cont {
+                height: 187px !important;
+            }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

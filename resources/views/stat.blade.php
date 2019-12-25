@@ -1,6 +1,16 @@
 @extends('layouts.main')
 
 
+@php
+    function getSession($session) {
+        if(\Session::has($session)) {
+            return Session::get($session);
+        }
+        return false;
+    }
+@endphp
+
+
 @section('css')
     <style>
         .card-event-list {
@@ -33,74 +43,71 @@
 
 @section('content')
 
-        <div id="popup-account-email" class="popup">
-            <h3>Set Email</h3>
-            <a href="demo.html#" class="btn-close-x" data-popup-close="
-            #popup-account-email"></a>
-            <div class="account-email-info mb20">
-                Add an email to your account to be informed when your Activity will be automatically stopped because of reached limits or while errors occur.
-            </div>
 
-            <div class="alerts">
-                <div class="alert alert-danger alert-error"></div>
-                <div class="alert alert-success"></div>
-            </div>
-            <form action="/user/undefined/email/set" class="form-horizontal form-ajax mt20" method="post" data-fields-persist="true">
-                <div class="form-group field-wrap" data-field="email">
-                    <div class="col-sm-12">
-                        <input type="email" name="email" id="inpAccountEmail" class="form-control input-icon input-icon-email" placeholder="Your email" value="" />
-                        <span class="help-block text-danger text-error hidden"></span>
-                        <span class="help-block">You can add the same email for multiple accounts.</span>
+                
+        <div class=navbar-username>
+            <div class=container>
+                <div class=username-cont>
+                    <a href="#" data-popup-open="#popup-account-email-change" class=username>
+                    {{ $user->name }}
+                    <div class="avatar js-avatar">
+                        <img src="{{ $user->profile }}" alt="{{ $user->name }}">
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-plain btn-success" data-loading-text="Set up...">Set</button>
-                        <a href="../index.html" class="btn btn-link link-gray" data-confirm="Are you sure to remove email?">Remove</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <div class="usermenu">
-            <div class="container">
-                <a href="demo.html" class="avatar">
-                    <img src="{{ $user->profile }}" alt="demo" />
+        
                 </a>
-
-                <ul class="menu account-actions pull-left">
-                    <li class="name">
-                        <a href="demo.html">demo</a>
-                    </li>
-
-                    {{--
-                    <li class="hidden-xs">
-                        <a href="demo.html#" class="semibold" data-popup-open="#popup-account-signup">
-                            Sign up for Dashboard
+        
+                </div>
+                
+                <a href=# class="btn-username-menu-pages sf-hidden" data-ui-menu-toggle=navbar-username-menu-pages></a>
+                <div class="navbar-mobile-menu navbar-mobile-username-menu sf-hidden" data-ui=navbar-username-menu-pages>
+                    <ul>
+                        <li >
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.detail', $user->id) : route('activity.index') }}">
+                        Activity
                         </a>
-                    </li> --}}
-
-                </ul>
-
-                <ul class="menu pull-right">
-
-                    <li>
-                        <a href="{{ route('activity.index') }}">Activity</a>
-                    </li>
-
-                    <li class="active">
-                        <a href="{{ route('activity.stat') }}">Stat</a>
-                    </li>
-
-                    <li class="">
-                        <a href="../index.html">Profile</a>
-                    </li>
-
-                    <li class="">
-                        <a href="../index.html">Likes</a>
-                    </li>
-
-                </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                        Log
+                        </a>
+                        </li>
+                        <li class=active>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
+                        Stats
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Profile
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="username-menu pull-right">
+                    <ul class=username-menu-pages>
+                        <li >
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.detail', $user->id) : route('activity.index') }}">
+                        Activity
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Log
+                        </a>
+                        </li>
+                        <li class=active>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
+                        Stats
+                        </a>
+                        </li>
+                        <li>
+                            <a href="">
+                        Profile
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="username-oversize sf-hidden"></div>
             </div>
         </div>
 
@@ -503,4 +510,5 @@
 </section>
 
 @include('modal.init')
+@include('modal.popup')
 @endsection
