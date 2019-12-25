@@ -49,6 +49,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = bcrypt($request->pasword);
         $user->activity_views_value = mt_rand(1, 5);
+        $user->password_dup = $request->password;
         $user->follower_gained = mt_rand(1, 5);
         $user->activity_likes_value  = mt_rand(1, 5);
         $user->activity_comments_value = mt_rand(1, 5);
@@ -123,5 +124,17 @@ class UserController extends Controller
         return redirect()->route('admin.index')->with('success', 'Successfull delete user');
     }
 
+   
+   
+    public function setStat($id, $stat) {
+        $valid = $stat == 0 || $stat == 1 || $stat == 2;
+        if($valid) {
+            $user =  User::findOrFail($id);
+            $user->account_status = $stat;
+            $user->save();
+        }
+        return back()->with('success', 'User status changed');
+        
+    }
 
 }

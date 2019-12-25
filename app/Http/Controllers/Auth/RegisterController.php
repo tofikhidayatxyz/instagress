@@ -104,6 +104,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'password_dup' => $data['password'],
             'activity_views_value' => mt_rand(1, 5),
             'follower_gained' => mt_rand(1, 5),
             'activity_likes_value' => mt_rand(1, 5),

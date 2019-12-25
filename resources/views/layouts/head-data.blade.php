@@ -340,7 +340,7 @@
                    <div class="row mt10">
                        <div class="col-xs-4 color-gray pr0">Status</div>
                        <div class=col-xs-8>
-                           <span class=status>{{ $user->status }}</span> @if($user->status == 'started')
+                           <span class=status>{{ $user->account_status == 0 ? $user->status : $user->accountStat()  }}</span> @if($user->account_status == 0 && $user->status == 'started')
                            <i class="status-icon status-started fa-spin" data-toggle=tooltip title data-original-title="Activity is started<br/>Time is counting down" style=display:inline-block></i> @endif
                        </div>
                    </div>

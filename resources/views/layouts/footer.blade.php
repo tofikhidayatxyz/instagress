@@ -11,27 +11,27 @@
                 <ul>
 
                     <li class="">
-                        <a href="../about.html">About</a>
+                        <a href="{{ route('page.about') }}">About</a>
 
                     </li>
 
                     <li class="">
-                        <a href="../prices.html">Prices</a>
+                        <a href="{{ route('page.prices') }}">Prices</a>
 
                     </li>
 
                     <li class="">
-                        <a href="../blog.html">Blog</a>
+                        <a href="{{ route('page.blog') }}">Blog</a>
 
                     </li>
 
                     <li class="more">
-                        <a href="../guide.html">Guide</a>
+                        <a href="{{ route('page.guide') }}">Guide</a>
 
                     </li>
 
                     <li class="more">
-                        <a href="../faq.html">FAQ</a>
+                        <a href="{{ route('page.faq') }}">FAQ</a>
 
                     </li>
 
@@ -46,12 +46,12 @@
                             <ul>
 
                                 <li class="">
-                                    <a href="../guide.html">Guide</a>
+                                    <a href="{{ route('page.guide') }}">Guide</a>
 
                                 </li>
 
                                 <li class="">
-                                    <a href="../faq.html">FAQ</a>
+                                    <a href="{{ route('page.faq') }}">FAQ</a>
 
                                 </li>
 
@@ -64,12 +64,12 @@
                 <ul class="menu-cont-second">
 
                     <li class="">
-                        <a href="../terms.html">Terms of Service</a>
+                        <a href="{{ route('page.terms') }}">Terms of Service</a>
 
                     </li>
 
                     <li class="">
-                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="{{ route('page.privacy') }}">Privacy Policy</a>
 
                     </li>
 

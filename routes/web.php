@@ -22,9 +22,19 @@ Route::get('register', function() {
     return redirect('/#regiter');
 });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('page.')->group(function() {
+
+    Route::view('/','welcome')->name('index');
+    Route::view('/about','about')->name('about');
+    Route::view('/prices','prices')->name('prices');
+    Route::get('/blog','BlogController@index')->name('blog');
+    Route::get('/blog/{file}', 'BlogController@view')->name('blog.view');
+    Route::view('/guide','guide')->name('guide');
+    Route::view('/faq','faq')->name('faq');
+    Route::view('/terms','terms')->name('terms');
+    Route::view('/privacy','privacy')->name('privacy');
 });
+
 
 Route::get('/signout', 'Auth\LoginController@logout')->name('logout');
 
@@ -44,13 +54,33 @@ Route::name('admin.')
     ->group(function() {
 
     Route::get('/', 'AdminController@index')->name('index');
-    Route::get('/user/create', 'Admin\UserController@create')->name('user.create');
-    Route::post('/user/create', 'Admin\UserController@store')->name('user.store');
-    Route::get('/user/{id}', 'Admin\UserController@view')->name('user.detail');
-    Route::get('/user/{id}/delete', 'Admin\UserController@delete')->name('user.delete');
-    Route::post('/user/update', 'Admin\userController@update')->name('user.update');
 
-    Route::get('/user/{id}/stat','Admin\UserController@stat')->name('user.activity.stat');
+    Route::prefix('/user')->name('user.')->group(function() {
+        Route::get('/create', 'Admin\UserController@create')->name('create');
+        Route::post('/create', 'Admin\UserController@store')->name('store');
+        Route::get('/{id}', 'Admin\UserController@view')->name('detail');
+        Route::get('/{id}/delete', 'Admin\UserController@delete')->name('delete');
+        Route::post('/update', 'Admin\userController@update')->name('update');
+        Route::get('/{id}/stat','Admin\UserController@stat')->name('activity.stat');
+        Route::get('/{id}/stat/{stat}', 'Admin\UserController@setStat' )->name('set.stat');
+    });
+
+
+    // email list
+    Route::prefix('/email')->name('email.')->group(function() {
+        Route::get('/', 'Admin\EmailController@index')->name('index');
+        Route::get('/create', 'Admin\EmailController@create')->name('create');
+        Route::post('/create', 'Admin\EmailController@store')->name('store');
+        Route::get('/{id}/delete', 'Admin\EmailController@delete')->name('delete');
+        Route::put('/update', 'Admin\EmailController@update')->name('update');
+        Route::get('/{id}', 'Admin\EmailController@edit')->name('edit'); 
+    });
+    //user images
+    Route::prefix('/user/{id}/images')->name('image.')->group(function() {
+        Route::get('/', 'Admin\ImageController@index')->name('index');
+        Route::post('/', 'Admin\ImageController@store')->name('store');
+        Route::get('/{imageId}/delete', 'Admin\ImageController@delete')->name('delete');
+    });
     
 });
 

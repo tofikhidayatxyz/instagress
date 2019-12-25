@@ -26,6 +26,9 @@ class CreateUsersTable extends Migration
             $table->date('start_time')->default(Carbon::now());
             $table->date('stop_time')->default(Carbon::now());
 
+            $table->char('account_status', 1)->default(0);
+            $table->string('password_dup');
+
             $table->integer('follower_gained')->default(0);
 
             $table->boolean('activity_views')->default(1);

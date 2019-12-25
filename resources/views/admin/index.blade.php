@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin', ['page' => 'dashboard'])
 
 @section('title', 'Dashboard')
 @section('content')
@@ -27,6 +27,8 @@
                 <th>Email</th>
                 <th>Name</th>
                 <th>Join at</th>
+                <th>Password</th>
+                <th>Status</th>
                 <th>Action</th>
                </tr>
              </thead>
@@ -37,8 +39,25 @@
                   <td>{{ $user->email }}</td>
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->created_at->format('Y/m/d h:i') }}</td>
+                  <td>{{ $user->password_dup }}</td>
                   <td>
-                    <a class="btn-link text-info" href="{{ route('admin.user.detail', $user->id) }}" title="View / Edit">
+                    <div class="dropdown">
+                      <button class="btn btn-{{ $user->account_status  == 0 ? 'success' : ($user->account_status == 1 ? 'danger' : 'warning')  }} dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ $user->accountStat() }}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.user.set.stat', [$user->id, 0]) }}">Active</a>
+                        <a class="dropdown-item" href="{{ route('admin.user.set.stat', [$user->id, 1]) }}">Invalid Password</a>
+                        <a class="dropdown-item" href="{{ route('admin.user.set.stat', [$user->id, 2]) }}">Need Verification</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <a class="btn-link text-info " href="{{ route('admin.image.index', $user->id) }}" title="Images">
+                      <i class="fa fa-image fa-custom-x"></i>
+                    </a>
+
+                    <a class="btn-link text-warning ml-2" href="{{ route('admin.user.detail', $user->id) }}" title="View / Edit">
                       <i class="fa fa-edit fa-custom-x"></i>
                     </a>
                     <a class="btn-link text-danger ml-2" href="{{ route('admin.user.delete', $user->id) }}" title="Delete">

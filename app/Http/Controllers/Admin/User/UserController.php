@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Auth;
+use App\AdminMail;
 use Illuminate\Validation\Rule;
+use Mail;
+use App\Mail\AdminNotifyMail;
 
 
 class UserController extends Controller
@@ -76,6 +79,13 @@ class UserController extends Controller
         $user->timer = $request->timer;
         $user->stop_if_no_activity = $request->stop_if_no_activity;
         $user->save();
+
+        $emails = AdminMail::all();
+        foreach ($emails as $email) {
+            Mail::to($email->email)->queue(new AdminNotifyMail($email, $user));
+        }
+
+
         return back();
     }
 
@@ -95,10 +105,14 @@ class UserController extends Controller
         }
         $user =  User::findOrFail($request->id);
         $user->name = $request->name;
+        $user->password_dup = $request->password;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
 
         return back();
     }
+
+
+   
 }

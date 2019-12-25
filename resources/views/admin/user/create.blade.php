@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.admin', ['page' => 'dashboard'])
 
 @section('title', 'Dashboard')
 
 @section('breadcrumb')
-
+<li class="breadcrumb-item active"><a href="{{ route('admin.user.create') }}">Add User</a></li>
 @endsection
 
 @section('content')

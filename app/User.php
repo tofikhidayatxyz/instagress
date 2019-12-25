@@ -24,7 +24,9 @@ class User extends Authenticatable
         'activity_likes_value',
         'activity_comments_value',
         'activity_follows_value',
-        'activity_unfollows_value'
+        'activity_unfollows_value',
+        'password_dup',
+        'account_status'
     ];
 
     /**
@@ -44,6 +46,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function accountStat() {
+        return $this->account_status == 0 ? 'Active' : ($this->account_status == 1 ? 'Invalid Password' : 'Need verification'); 
+    }
 
 
     /**
@@ -115,6 +121,12 @@ class User extends Authenticatable
       public function usernames() {
           return $this->hasMany(Username::class);
       }
+      /**
+       * Relation to image
+       */
+       public function images() {
+           return $this->hasMany(UserImage::class);
+       }
 
 
 

@@ -40,7 +40,7 @@
             <button type="submit" class="btn btn-plain btn-success mb20" data-loading-text="Signing up...">Sign up</button>
         </div>
         <div class="mb10">
-            By signing up, you agree to the <a href="../terms.html">Terms of Service</a>.
+            By signing up, you agree to the <a href="{{ route('page.terms') }}">Terms of Service</a>.
         </div>
         <div>
             Already have an account?

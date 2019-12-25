@@ -10,7 +10,7 @@
         Please use the form below if you have any questions, comments or would like to give us some feedback. Your opinion is very important to us!
     </div>
     <div class="alert alert-info">
-        If you have a question or you want to ask about an error, please try to find an answer on the <a href="../faq.html">FAQ</a> page by yourself at first.
+        If you have a question or you want to ask about an error, please try to find an answer on the <a href="{{ route('page.faq') }}">FAQ</a> page by yourself at first.
     </div>
     <div class="alerts">
         <div class="alert alert-danger alert-error"></div>
@@ -81,7 +81,7 @@
     <div class="alert alert-success">
 
         <strong>Your account security is very important to us!</strong>
-        <br/> We will not store your password after this sign in process. The&nbsp;password is required to establish connection with Instagram. Please, read our <a href="../guide.html">Guide</a> before sign in.
+        <br/> We will not store your password after this sign in process. The&nbsp;password is required to establish connection with Instagram. Please, read our <a href="{{ route('page.guide') }}">Guide</a> before sign in.
 
     </div>
     <div class="alerts">
@@ -109,7 +109,7 @@
 
         <div class="mb10">
             By signing in, you agree to the
-            <a href="../terms.html">Terms of Service</a>.
+            <a href="{{ route('page.terms') }}">Terms of Service</a>.
         </div>
 
         <div>
