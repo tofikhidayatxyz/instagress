@@ -11,7 +11,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-1-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-1-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h3>Is it safe to use Instagress? Yes, if you do it correctly.</h3>
@@ -33,7 +33,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-2-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-2-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h3>Before you start:</h3>
@@ -67,7 +67,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-3-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-3-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h3>It's time to start:</h3>
@@ -111,7 +111,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-1-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-1-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>1. Actions</h4>
@@ -139,7 +139,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-settings-2-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-2-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h4>2. Activity speed</h4>
@@ -163,7 +163,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-3-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-3-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>3. Media source</h4>
@@ -185,7 +185,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-settings-4-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-4-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h4>4. Minimum likes filter & Maximum likes filter</h4>
@@ -209,7 +209,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-5-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-5-v=203.png') }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>5. New media only</h4>
@@ -231,7 +231,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-settings-unfollow-v=203.png" class="img-responsive img-center"/>
+				<img src="{{  asset('img/guide-settings-unfollow-v=203.png')  }}" class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h4>6. Unfollow source & Unfollow who don't follow me:</h4>
@@ -257,7 +257,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-dontcomment-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-dontcomment-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>7. Don't comment same users</h4>
@@ -273,7 +273,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-settings-6-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-6-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h4>8. Tags</h4>
@@ -304,7 +304,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-7-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-7-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>9. Comments</h4>
@@ -340,7 +340,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-settings-8-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-8-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h4>10. Like, Comment, Follow and Unfollow counters</h4>
@@ -358,7 +358,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<img src="img/guide-settings-9-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-settings-9-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7">
 				<h4>11. Timer</h4>
@@ -374,7 +374,7 @@
 
 		<div class="row">
 			<div class="col-xs-12 col-md-5 col-md-push-7">
-				<img src="img/guide-footnote-v=203.png" class="img-responsive img-center"/>
+				<img src="{{ asset('img/guide-footnote-v=203.png') }} " class="img-responsive img-center"/>
 			</div>
 			<div class="col-xs-12 col-md-7 col-md-pull-5">
 				<h5>

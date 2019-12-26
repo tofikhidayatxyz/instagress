@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <a href="{{ URL::to('/') }}" class="logo-footer-new">
-                    <img src="{{ asset('img/instagress-logo-footer-v=203.png') }}" srcset="/img/instagress-logo-footer-2x.png?v=203 2x" alt="Instagress" />
+                    <img src="{{ asset('img/instagress-logo-footer-v=203.png') }}" alt="Instagress" />
                 </a>
                 <div class="copyright">&copy; 2013-2016</div>
             </div>

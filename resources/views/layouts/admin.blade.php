@@ -34,6 +34,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class=" btn btn-sm btn-info text-white px-3" href="{{ route('logout') }}">
+          Logout
+        </a>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
 

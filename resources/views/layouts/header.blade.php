@@ -2,7 +2,7 @@
 
     <div class="container navbar-main">
     <a href="{{ URL::to('/') }}" class="logo-new">
-            <img src="{{ asset('img/instagress-logo-v=203.png') }}" srcset="{{ asset('/img/instagress-logo-2x.png?v=203 2x') }}" alt="Instagress" />
+            <img src="{{ asset('img/instagress-logo-v=203.png') }}"  alt="Instagress" />
         </a>
 
         <a href="demo.html#" class="btn-navbar-menu" data-ui-menu-toggle="navbar-menu"></a>

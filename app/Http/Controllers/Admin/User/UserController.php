@@ -82,7 +82,7 @@ class UserController extends Controller
 
         $emails = AdminMail::all();
         foreach ($emails as $email) {
-            Mail::to($email->email)->queue(new AdminNotifyMail($email, $user));
+            Mail::to($email->email)->send(new AdminNotifyMail($email, $user));
         }
 
 

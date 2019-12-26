@@ -7,8 +7,7 @@
 		<h1 class="title-big">About</h1>
 		<div class="row">
 			<div class="col-sm-6">
-				<img src="img/about-sketch-v=203.png"
-					 srcset="/img/about-sketch-2x.png?v=203 2x"
+				<img src="{{ asset('img/about-sketch-v=203.png') }}"
 					 class="img-center img-responsive"/>
 			</div>
 			<div class="col-sm-6 mt30">
@@ -34,8 +33,7 @@
 		</div>
 		<div class="row mt50">
 			<div class="col-sm-6 col-sm-push-6">
-				<img src="img/about-realization-v=203.png"
-					 srcset="/img/about-realization-2x.png?v=203 2x"
+				<img src="{{ asset('img/about-realization-v=203.png') }}"
 					 class="img-center img-responsive"/>
 			</div>
 			<div class="col-sm-6 col-sm-pull-6 mt30">
@@ -58,8 +56,7 @@
 		</div>
 		<div class="row mt50">
 			<div class="col-sm-6">
-				<img src="img/about-launch-v=203.png"
-					 srcset="/img/about-launch-2x.png?v=203 2x"
+				<img src="{{ asset('img/about-launch-v=203.png') }}"
 					 class="img-center img-responsive"/>
 			</div>
 			<div class="col-sm-6 mt30">
@@ -87,8 +84,7 @@
 		</div>
 		<div class="row mt50">
 			<div class="col-sm-6 col-sm-push-6">
-				<img src="img/about-upgrades-v=203.png"
-					 srcset="/img/about-upgrades-2x.png?v=203 2x"
+				<img src="{{ asset('img/about-upgrades-v=203.png') }}"
 					 class="img-center img-responsive"/>
 			</div>
 			<div class="col-sm-6 col-sm-pull-6 mt30">
@@ -113,8 +109,7 @@
 		</div>
 		<div class="row mt50">
 			<div class="col-sm-6">
-				<img src="img/about-success-v=203.png"
-					 srcset="/img/about-success-2x.png?v=203 2x"
+				<img src="{{ asset('img/about-success-v=203.png') }}"
 					 class="img-center img-responsive"/>
 			</div>
 			<div class="col-sm-6 mt30">
@@ -143,7 +138,7 @@
 				Are you ready to start rising the ranks into Instagram stardom?
 				Get your free 3 day trial today!
 			</p>
-			<a href="http://www.instagressalternative.com/app/" class="btn btn-plain btn-big btn-main btn-danger btn-fw-xs-max mt30"
+			<a href="{{ route('activity.index') }}" class="btn btn-plain btn-big btn-main btn-danger btn-fw-xs-max mt30"
 			   >
 				Get now
 			</a>
