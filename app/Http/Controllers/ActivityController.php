@@ -84,8 +84,7 @@ class ActivityController extends Controller
 
     public function stat() {
         $user =  Auth::user();
-        
-        
+    
         try {
             $client = new Client();
             $url = "https://www.instagram.com/$user->name/?__a=1";
@@ -99,6 +98,23 @@ class ActivityController extends Controller
         }
        
         return view('stat', compact('user'));
+    }
+
+    public function logs() {
+        
+        $user = Auth::user();
+        try {
+            $client = new Client();
+            $url = "https://www.instagram.com/$user->name/?__a=1";
+            $response = $client->request('GET', $url);
+            $content = $response->getBody()->getContents();
+            $content = json_decode($content, 1);
+            $user->profile =  $content['graphql']['user']['profile_pic_url'];
+        }
+        catch (\GuzzleHttp\Exception\RequestException $e) {
+            $user->profile = asset('/img/default-avatar.png');
+        }
+        return view('logs', compact('user'));
     }
 
     public function stop($id) {

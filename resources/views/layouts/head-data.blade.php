@@ -29,9 +29,10 @@
                </a>
                </li>
                <li>
-                   <a href="">
-               Log
-               </a>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.logs', $user->id) : route('activity.logs') }}">
+                        Log
+                        </a>
+                        </li>
                </li>
                <li>
                    <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
@@ -53,9 +54,10 @@
                </a>
                </li>
                <li>
-                   <a href="">
-               Log
-               </a>
+                            <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.logs', $user->id) : route('activity.logs') }}">
+                        Log
+                        </a>
+                        </li>
                </li>
                <li>
                    <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">

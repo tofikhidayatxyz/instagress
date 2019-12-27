@@ -13,7 +13,7 @@ class ImageController extends Controller
     public function index($id) {
 
         $user =  User::findOrFail($id);
-        $images =  $user->images()->paginate(12);
+        $images =  $user->images()->paginate(20);
         return view('admin.user.image', compact('user', 'images'));
     }
 

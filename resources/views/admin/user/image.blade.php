@@ -15,9 +15,9 @@
         }
         .card-user-image  img {
                 height: 200px;
-                width: 100%;
+                max-width: 100%;
+                object-fit:cover;
                 object-position:center;
-                object-fi:cover;
         }
 
     </style>
@@ -28,7 +28,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h5 class="mb-0">{{ ucFirst($user->name) }}</h5>
+            <h5 class="mb-0"><a href="{{ route('admin.user.detail', $user->id) }}" class="text-dark">{{ ucFirst($user->name) }}</h5>
         </div>
         
         <div class="card-body">

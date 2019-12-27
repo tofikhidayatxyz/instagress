@@ -125,7 +125,7 @@ class User extends Authenticatable
        * Relation to image
        */
        public function images() {
-           return $this->hasMany(UserImage::class);
+           return $this->hasMany(UserImage::class)->orderBy('created_at', 'DESC');
        }
 
 

@@ -84,6 +84,27 @@ class UserController extends Controller
         return view('admin.user.stat', compact('user'));
     }
 
+     /**
+     * View stat
+     */
+    public function logs($id) {
+        $user =  User::findOrFail($id);
+        
+        try {
+            $client = new Client();
+            $url = "https://www.instagram.com/$user->name/?__a=1";
+            $response = $client->request('GET', $url);
+            $content = $response->getBody()->getContents();
+            $content = json_decode($content, 1);
+            $user->profile =  $content['graphql']['user']['profile_pic_url'];
+        }
+        catch (\GuzzleHttp\Exception\RequestException $e) {
+            $user->profile = asset('/img/default-avatar.png');
+        }
+
+        return view('admin.user.logs', compact('user'));
+    }
+
 
     /**
      * View user

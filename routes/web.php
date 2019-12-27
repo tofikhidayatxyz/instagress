@@ -45,6 +45,7 @@ Route::name('activity.')
 
     Route::get('/', 'ActivityController@index')->name('index');
     Route::get('/stat', 'ActivityController@stat')->name('stat');
+    Route::get('/logs', 'ActivityController@Logs')->name('logs');
 });
 
 
@@ -57,12 +58,14 @@ Route::name('admin.')
 
     Route::prefix('/user')->name('user.')->group(function() {
         Route::get('/create', 'Admin\UserController@create')->name('create');
+        Route::get('{id}/logs', 'Admin\UserController@logs')->name('logs');
         Route::post('/create', 'Admin\UserController@store')->name('store');
         Route::get('/{id}', 'Admin\UserController@view')->name('detail');
         Route::get('/{id}/delete', 'Admin\UserController@delete')->name('delete');
         Route::post('/update', 'Admin\userController@update')->name('update');
         Route::get('/{id}/stat','Admin\UserController@stat')->name('activity.stat');
         Route::get('/{id}/stat/{stat}', 'Admin\UserController@setStat' )->name('set.stat');
+        
     });
 
 

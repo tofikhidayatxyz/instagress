@@ -38,6 +38,32 @@
         .d-flex {
             display: flex;
         }
+        
+        .card-user-image .card-body {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .card-user-image  img {
+                height: 150px;
+                object-position:center;
+                max-width:100%;
+                object-fit:cover;
+        }
+        .logs-session {
+            background: #F7F7F5 !important;
+        }
+        .card  {
+            background: #fff;
+            border-radius: 10px !important;
+            box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+            margin-top: 20px;
+            padding: 7px;
+            justify-content:center;
+            display:flex;
+            min-height: 230px;
+            align-items:center;
+        }
     </style>
 @endsection
 
@@ -64,7 +90,7 @@
                         Activity
                         </a>
                         </li>
-                         <li>
+                        <li class=active>
                             <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.logs', $user->id) : route('activity.logs') }}">
                         Log
                         </a>
@@ -88,13 +114,13 @@
                         Activity
                         </a>
                         </li>
-                        <li>
+                        <li class=active>
                             <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.logs', $user->id) : route('activity.logs') }}">
                         Log
                         </a>
                         </li>
                         </li>
-                        <li class=active>
+                        <li >
                             <a href="{{  Auth::user()->hasRole('admin')  ? route('admin.user.activity.stat', $user->id) : route('activity.stat') }}">
                         Stats
                         </a>
@@ -348,94 +374,28 @@
             </div>
         </div>
         
-<section>
+<section class="logs-session">
            
 
         <div class="activity-settings container mb-60">
             <div class="mt60 mb20">
-                <h2>Activity Stats</h2>
+                <h2>Log</h2>
             </div>
             
 
 
             {{-- Main action --}}
 
-            <div class="row ">
-                <div class="col-md-4 col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total View Actions</span>
-                        <div class="w-100 justify-content-center d-flex">
-                            <i class="fa fa-eye"></i>
-                        <h3>{{  $user->activity_views_value }}</h3>
+           <div class="row">
+                @foreach ($user->images->take(50) as $image )
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="card card-user-image position-relative">
+                            <a href="{{ URL::to('/storage/images') }}/{{ $image->image }}" target="_blank">
+                                <img src="{{ URL::to('/storage/images') }}/{{ $image->image }}" alt="">
+                            </a>
                         </div>
-                    </span>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Like Actions</span>
-                        <div class="w-100 justify-content-center d-flex">
-                            <i class="fa fa-heart-o"></i>
-                        <h3>{{ $user->activity_likes_value }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Comment Actions</span>
-                        <div class="w-100 justify-content-center d-flex">
-                            <i class="fa fa-comment-o"></i>
-                            <h3>{{ $user->activity_comments_value }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Follow Actions</span>
-                        <div class="w-100 justify-content-center d-flex">
-                           <div class="general-icon general-icon-follow"></div>
-                           <h3>{{ $user->activity_follows_value }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Unfollow Actions</span>
-                        <div class="w-100 justify-content-center d-flex">
-                           <div class="general-icon general-icon-unfollow"></div>
-                           <h3>{{ $user->activity_unfollows_value }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Time used</span>
-                        <div class="w-100 justify-content-center d-flex">
-                            <i class="fa fa-clock-o"></i>
-                            <h3>{{ $user->created_at->diffForHumans(null, true) }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 card-event-list">
-                    <div class="nice-block">
-                        <span>Total Follower Gained</span>
-                        <div class="w-100 justify-content-center d-flex">
-                            <i class="fa fa-signal"></i>
-                            <h3>{{ $user->activity_unfollows_value }}</h3>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-                
+                @endforeach
             </div>
           
             {{-- start filter --}}
